@@ -29,6 +29,12 @@ class VehicleViewModel(private val vehicleRepository: VehicleRepository) : ViewM
         }
     }
 
+    /*
+     setValue() method must be called from the main thread.
+     But if you need set a value from a background thread, postValue() should be used.
+     Instead of using 3 different liveData, I prefer to use stateLiveData for ViewState
+     that's why I set the value on main thread otherwise my last state would be set
+     */
     private fun emitNewState(newState: ViewState) {
         viewModelScope.launch(Dispatchers.Main) {
             stateLiveData.value = newState

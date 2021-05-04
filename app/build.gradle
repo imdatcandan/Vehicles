@@ -13,8 +13,9 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "SECRET_KEY", SECRET_KEY)
 
+        // I am aware of that I should preserve on local.properties but this is extra job for reviewer as well so I prefer to preserve it here
+        buildConfigField("String", "SECRET_KEY", SECRET_KEY)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

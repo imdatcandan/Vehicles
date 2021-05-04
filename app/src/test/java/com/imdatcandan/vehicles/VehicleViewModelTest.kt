@@ -52,7 +52,6 @@ class VehicleViewModelTest {
             mockedObserver.onChanged(ViewState.Loading(true))
             mockedObserver.onChanged(ViewState.Success(vehicleList))
             mockedObserver.onChanged(ViewState.Loading(false))
-
         }
     }
 
@@ -66,7 +65,6 @@ class VehicleViewModelTest {
             mockedObserver.onChanged(ViewState.Loading(true))
             mockedObserver.onChanged(ViewState.Error(ERROR))
             mockedObserver.onChanged(ViewState.Loading(false))
-
         }
     }
 
