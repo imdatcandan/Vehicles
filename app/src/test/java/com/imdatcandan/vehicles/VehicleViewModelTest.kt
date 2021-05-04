@@ -2,8 +2,8 @@ package com.imdatcandan.vehicles
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.imdatcandan.vehicles.domain.VehicleUseCase
 import com.imdatcandan.vehicles.model.VehicleList
-import com.imdatcandan.vehicles.domain.VehicleRepository
 import com.imdatcandan.vehicles.view.ViewState
 import com.imdatcandan.vehicles.viewmodel.VehicleViewModel
 import io.mockk.coEvery
@@ -32,19 +32,19 @@ class VehicleViewModelTest {
     private lateinit var viewModel: VehicleViewModel
     private lateinit var mockedObserver: Observer<ViewState>
 
-    private val vehicleRepository: VehicleRepository = mockk(relaxed = true)
+    private val useCase: VehicleUseCase = mockk(relaxed = true)
     private val vehicleList: VehicleList = mockk(relaxed = true)
 
     @Before
     fun setup() {
-        viewModel = VehicleViewModel(vehicleRepository)
+        viewModel = VehicleViewModel(useCase)
         mockedObserver = createViewStateObserver()
         viewModel.stateLiveData.observeForever(mockedObserver)
     }
 
     @Test
     fun testSuccessViewState() = runBlockingTest {
-        coEvery { vehicleRepository.getVehicleList() } returns vehicleList
+        coEvery { useCase.getVehicleList() } returns vehicleList
 
         viewModel.getVehicleList()
 
@@ -57,7 +57,7 @@ class VehicleViewModelTest {
 
     @Test
     fun testErrorViewState() = runBlockingTest {
-        coEvery { vehicleRepository.getVehicleList() } throws ERROR
+        coEvery { useCase.getVehicleList() } throws ERROR
 
         viewModel.getVehicleList()
 
