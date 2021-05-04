@@ -3,7 +3,7 @@ package com.imdatcandan.vehicles
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.imdatcandan.vehicles.model.VehicleList
-import com.imdatcandan.vehicles.repository.VehicleRepository
+import com.imdatcandan.vehicles.domain.VehicleRepository
 import com.imdatcandan.vehicles.view.ViewState
 import com.imdatcandan.vehicles.viewmodel.VehicleViewModel
 import io.mockk.coEvery

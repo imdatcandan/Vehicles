@@ -3,12 +3,12 @@ package com.imdatcandan.vehicles.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.imdatcandan.vehicles.repository.VehicleRepository
+import com.imdatcandan.vehicles.domain.VehicleUseCase
 import com.imdatcandan.vehicles.view.ViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class VehicleViewModel(private val vehicleRepository: VehicleRepository) : ViewModel() {
+class VehicleViewModel(private val vehiclesUseCase: VehicleUseCase) : ViewModel() {
 
     val stateLiveData: MutableLiveData<ViewState> = MutableLiveData(ViewState.Loading(true))
 
@@ -19,7 +19,7 @@ class VehicleViewModel(private val vehicleRepository: VehicleRepository) : ViewM
     fun getVehicleList() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val vehicleList = vehicleRepository.getVehicleList()
+                val vehicleList = vehiclesUseCase.getVehicleList()
                 emitNewState(ViewState.Success(vehicleList))
             } catch (exception: Exception) {
                 emitNewState(ViewState.Error(exception))

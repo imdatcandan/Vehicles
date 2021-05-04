@@ -1,4 +1,4 @@
-package com.imdatcandan.vehicles.repository
+package com.imdatcandan.vehicles.domain
 
 import com.imdatcandan.vehicles.model.VehicleList
 import retrofit2.http.GET

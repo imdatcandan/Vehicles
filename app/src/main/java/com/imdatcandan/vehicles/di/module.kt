@@ -2,8 +2,9 @@ package com.imdatcandan.vehicles.di
 
 
 import com.imdatcandan.vehicles.BuildConfig
-import com.imdatcandan.vehicles.repository.VehicleRepository
-import com.imdatcandan.vehicles.repository.VehicleService
+import com.imdatcandan.vehicles.domain.VehicleRepository
+import com.imdatcandan.vehicles.domain.VehicleService
+import com.imdatcandan.vehicles.domain.VehicleUseCase
 import com.imdatcandan.vehicles.viewmodel.VehicleViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -17,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val appModule = module {
     single { VehicleRepository(get()) }
+    single { VehicleUseCase(get()) }
     viewModel { VehicleViewModel(get()) }
 }
 
@@ -53,11 +55,10 @@ private fun provideWeatherService(retrofit: Retrofit): VehicleService =
 
 private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(BuildConfig.BASE_API_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
 
-private const val BASE_URL = "https://api.jsonbin.io/"
 private const val SECRET_KEY = "secret-key"
