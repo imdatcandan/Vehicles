@@ -33,7 +33,7 @@
 
     <item
         android:id="@+id/gps_issue_list"
-        android:title="@string/out_of_order_list" />
+        android:title="@string/gps_issue_list" />
 
     <item
         android:id="@+id/last_search_list"
