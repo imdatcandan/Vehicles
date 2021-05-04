@@ -67,36 +67,33 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun setRequestedListOnMap(requestedList: List<Current>) {
         requestedList.forEach { current ->
             val vehiclePosition = LatLng(current.latitude, current.longitude)
-            vehicleMap.addMarker(
-                MarkerOptions().position(vehiclePosition).title(current.state).icon(
-                    BitmapDescriptorFactory.defaultMarker(
-                        State.valueOf(current.state).iconColor
-                    )
-                )
-            )
-            vehicleMap.animateCamera(
-                CameraUpdateFactory.newLatLngZoom(
-                    vehiclePosition,
-                    ZOOM_LEVEL
-                )
+            vehicleMap.addMarker(MarkerOptions()
+                .position(vehiclePosition)
+                .title(current.state)
+                .icon(BitmapDescriptorFactory.defaultMarker(State.valueOf(current.state).iconColor)))
+            vehicleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(vehiclePosition, ZOOM_LEVEL)
             )
         }
     }
 
+    private val optionItemStateMap by lazy {
+        mapOf(
+            R.id.all_list to State.ALL,
+            R.id.active_list to State.ACTIVE,
+            R.id.damaged_list to  State.DAMAGED,
+            R.id.lost_list to State.LOST,
+            R.id.low_battery_list to  State.LOW_BATTERY,
+            R.id.last_search_list to State.LAST_SEARCH,
+            R.id.missing_list to  State.MISSING,
+            R.id.out_of_order_list to State.OUT_OF_ORDER,
+            R.id.gps_issue_list to  State.GPS_ISSUE,
+            R.id.maintenance_list to State.MAINTENANCE
+        )
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.all_list -> showRequestedList(State.ALL)
-            R.id.active_list -> showRequestedList(State.ACTIVE)
-            R.id.damaged_list -> showRequestedList(State.DAMAGED)
-            R.id.lost_list -> showRequestedList(State.LOST)
-            R.id.maintenance_list -> showRequestedList(State.MAINTENANCE)
-            R.id.low_battery_list -> showRequestedList(State.LOW_BATTERY)
-            R.id.gps_issue_list -> showRequestedList(State.GPS_ISSUE)
-            R.id.last_search_list -> showRequestedList(State.LAST_SEARCH)
-            R.id.missing_list -> showRequestedList(State.MISSING)
-            R.id.out_of_order_list -> showRequestedList(State.OUT_OF_ORDER)
-            else -> showRequestedList(State.ALL)
-        }
+        val requestedState = optionItemStateMap[item.itemId] ?: State.ALL
+        showRequestedList(requestedState)
         return super.onOptionsItemSelected(item)
     }
 
@@ -116,6 +113,5 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private companion object {
         private const val ZOOM_LEVEL = 12f
-
     }
 }
