@@ -71,23 +71,22 @@ class VehiclesActivity : AppCompatActivity(), OnMapReadyCallback {
                 .position(vehiclePosition)
                 .title(current.state)
                 .icon(BitmapDescriptorFactory.defaultMarker(State.valueOf(current.state).iconColor)))
-            vehicleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(vehiclePosition, ZOOM_LEVEL)
-            )
+            vehicleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(vehiclePosition, ZOOM_LEVEL))
         }
     }
 
     private val optionItemStateMap by lazy {
         mapOf(
-            R.id.all_list to State.ALL,
-            R.id.active_list to State.ACTIVE,
-            R.id.damaged_list to  State.DAMAGED,
-            R.id.lost_list to State.LOST,
-            R.id.low_battery_list to  State.LOW_BATTERY,
-            R.id.last_search_list to State.LAST_SEARCH,
-            R.id.missing_list to  State.MISSING,
-            R.id.out_of_order_list to State.OUT_OF_ORDER,
-            R.id.gps_issue_list to  State.GPS_ISSUE,
-            R.id.maintenance_list to State.MAINTENANCE
+            R.id.all_vehicles to State.ALL,
+            R.id.active_vehicles to State.ACTIVE,
+            R.id.damaged_vehicles to  State.DAMAGED,
+            R.id.gps_issue_vehicles to  State.GPS_ISSUE,
+            R.id.maintenance_vehicles to State.MAINTENANCE,
+            R.id.missing_vehicles to  State.MISSING,
+            R.id.last_search_vehicles to State.LAST_SEARCH,
+            R.id.lost_vehicles to State.LOST,
+            R.id.low_battery_vehicles to  State.LOW_BATTERY,
+            R.id.out_of_order_vehicles to State.OUT_OF_ORDER,
         )
     }
 

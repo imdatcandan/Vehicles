@@ -2,40 +2,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/all_list"
-        android:title="@string/all_list" />
+        android:id="@+id/all_vehicles"
+        android:title="@string/all_vehicles" />
     <item
-        android:id="@+id/active_list"
-        android:title="@string/active_list" />
+        android:id="@+id/active_vehicles"
+        android:title="@string/active_vehicles" />
     <item
-        android:id="@+id/low_battery_list"
-        android:title="@string/low_battery_list" />
+        android:id="@+id/damaged_vehicles"
+        android:title="@string/damaged_vehicles" />
+    <item
+        android:id="@+id/gps_issue_vehicles"
+        android:title="@string/gps_issue_vehicles" />
+    <item
+        android:id="@+id/maintenance_vehicles"
+        android:title="@string/maintenance_vehicles" />
+    <item
+        android:id="@+id/missing_vehicles"
+        android:title="@string/missing_vehicles" />
 
     <item
-        android:id="@+id/damaged_list"
-        android:title="@string/damaged_list" />
-
+        android:id="@+id/last_search_vehicles"
+        android:title="@string/last_search_vehicles" />
     <item
-        android:id="@+id/lost_list"
-        android:title="@string/lost_list" />
-
+        android:id="@+id/lost_vehicles"
+        android:title="@string/lost_vehicles" />
     <item
-        android:id="@+id/maintenance_list"
-        android:title="@string/maintenance_list" />
-
+        android:id="@+id/low_battery_vehicles"
+        android:title="@string/low_battery_vehicles" />
     <item
-        android:id="@+id/out_of_order_list"
-        android:title="@string/out_of_order_list" />
-
-    <item
-        android:id="@+id/missing_list"
-        android:title="@string/missing_list" />
-
-    <item
-        android:id="@+id/gps_issue_list"
-        android:title="@string/gps_issue_list" />
-
-    <item
-        android:id="@+id/last_search_list"
-        android:title="@string/last_search_list" />
+        android:id="@+id/out_of_order_vehicles"
+        android:title="@string/out_of_order_vehicles" />
 </menu>
