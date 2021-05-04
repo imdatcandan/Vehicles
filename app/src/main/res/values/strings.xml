@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Vehicles</string>
+
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_error_message">Smth went wrong, please try again, %1$s</string>
+    <string name="dialog_error_button">Retry</string>
+
+    <string name="all_list">All List</string>
+    <string name="active_list">Active List</string>
+    <string name="low_battery_list">Low Battery List</string>
+    <string name="maintenance_list">Maintenance List</string>
+    <string name="damaged_list">Damaged List</string>
+    <string name="lost_list">Lost List</string>
+    <string name="out_of_order_list">Out of Order List</string>
+    <string name="missing_list">Missing List</string>
+    <string name="last_search_list">Last Search List</string>
+    <string name="gps_issue_list">GPS Issue List</string>
+</resources>

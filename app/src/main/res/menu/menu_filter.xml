@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/all_list"
+        android:title="@string/all_list" />
+    <item
+        android:id="@+id/active_list"
+        android:title="@string/active_list" />
+    <item
+        android:id="@+id/low_battery_list"
+        android:title="@string/low_battery_list" />
+
+    <item
+        android:id="@+id/damaged_list"
+        android:title="@string/damaged_list" />
+
+    <item
+        android:id="@+id/lost_list"
+        android:title="@string/lost_list" />
+
+    <item
+        android:id="@+id/maintenance_list"
+        android:title="@string/maintenance_list" />
+
+    <item
+        android:id="@+id/out_of_order_list"
+        android:title="@string/out_of_order_list" />
+
+    <item
+        android:id="@+id/missing_list"
+        android:title="@string/missing_list" />
+
+    <item
+        android:id="@+id/gps_issue_list"
+        android:title="@string/out_of_order_list" />
+
+    <item
+        android:id="@+id/last_search_list"
+        android:title="@string/last_search_list" />
+</menu>
